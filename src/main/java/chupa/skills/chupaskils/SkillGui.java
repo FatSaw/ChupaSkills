@@ -93,7 +93,7 @@ class SkillGui implements Listener {
         return level;
     }
     private static void setBoard(Inventory inv) {
-        ItemStack bord = new ItemStack(Material.STAINED_GLASS_PANE, 1, (short) 15);
+    	ItemStack bord = new ItemStack(Material.GRAY_STAINED_GLASS_PANE, 1);
         ItemMeta bordmeta = bord.getItemMeta();
         bordmeta.setDisplayName(" ");
         bord.setItemMeta(bordmeta);
@@ -127,7 +127,7 @@ class SkillGui implements Listener {
         }
         placeholders = Arrays.copyOf(placeholders, i);
 
-        ItemStack exp = new ItemStack(Material.EXP_BOTTLE);
+        ItemStack exp = new ItemStack(Material.EXPERIENCE_BOTTLE);
         ItemMeta meta = exp.getItemMeta();
         meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         meta.setDisplayName(LangOptions.inventory_item_exp_name.getMsg(player));
