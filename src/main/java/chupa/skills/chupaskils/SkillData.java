@@ -116,7 +116,19 @@ class SkillData implements Listener {
             return;
     	}
     	case SPEED: {
-    		player.setWalkSpeed(0.2f+0.2f*lvl*0.03f);
+    		ArrayList<AttributeModifier> toremovemodifiers = new ArrayList<AttributeModifier>();
+            AttributeInstance speedattrib = player.getAttribute(Attribute.GENERIC_MOVEMENT_SPEED);
+            for(AttributeModifier modifier : speedattrib.getModifiers()) {
+            	if(modifier.getName().equals("chupaskill_speed")) {
+            		toremovemodifiers.add(modifier);
+            	}
+            }
+            if(lvl>0) {
+            	speedattrib.addModifier(new AttributeModifier("chupaskill_speed", lvl*0.03, Operation.ADD_SCALAR));
+            }
+            for(AttributeModifier modifier : toremovemodifiers) {
+            	speedattrib.removeModifier(modifier);
+            }
             return;
     	}
     	default: return;
