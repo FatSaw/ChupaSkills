@@ -2,6 +2,7 @@ name: ChupaSkils
 version: '${project.version}'
 main: chupa.skills.chupaskils.ChupaSkils
 authors: [ xChupa ]
+api-version: 1.16
 commands:
   skill:
     aliases:
